@@ -176,6 +176,50 @@ export default function Frame(
     >
       <div className="w-[300px] mx-auto py-2 px-2">
         <h1 className="text-2xl font-bold text-center mb-4">{title}</h1>
+        
+        <div className="space-y-2">
+          <PurpleButton
+            className="w-full"
+            onClick={() => sdk.actions.openUrl("https://warpcast.com/hellno")}
+          >
+            Farcaster Profile
+          </PurpleButton>
+
+          <PurpleButton
+            className="w-full"
+            onClick={() => sdk.actions.openUrl("https://github.com/hellno")}
+          >
+            GitHub Profile
+          </PurpleButton>
+
+          <PurpleButton
+            className="w-full"
+            onClick={() => sdk.actions.openUrl("https://warpcast.com/~/channel/frames")}
+          >
+            Farcaster Frames Channel
+          </PurpleButton>
+
+          <PurpleButton
+            className="w-full"
+            onClick={() => sdk.actions.openUrl("https://docs.farcaster.xyz")}
+          >
+            Farcaster Docs
+          </PurpleButton>
+
+          {context?.client.recentLinks?.map((link, index) => (
+            <PurpleButton
+              key={index}
+              className="w-full"
+              onClick={() => sdk.actions.openUrl(link)}
+            >
+              Recent Link {index + 1}
+            </PurpleButton>
+          ))}
+        </div>
+
+        <div className="mt-4 text-center text-sm text-neutral-500">
+          Tap any button to open the link
+        </div>
       </div>
     </div>
   );
